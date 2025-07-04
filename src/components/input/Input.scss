@@ -1,0 +1,54 @@
+.input {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 2px;
+
+    &--zero {
+      color: #be7c6f;
+    }
+  }
+  &__group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    img {
+      position: absolute;
+      left: 15px;
+    }
+    input {
+      display: flex;
+      padding: 13px 15px;
+      height: 45px;
+      width: 100%;
+      background-color: #f3f9fb;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      outline: none;
+      text-align: end;
+      color: #094745;
+      font-size: 20px;
+      &:focus {
+        border: 2px solid #57a99e;
+      }
+    }
+    .zero {
+      border: 2px solid #b47b6d;
+
+      &:focus {
+        border: 2px solid #b47b6d;
+      }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

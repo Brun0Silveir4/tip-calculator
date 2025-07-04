@@ -1,0 +1,32 @@
+.card {
+  &__container {
+    width: 920px;
+    height: 480px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 5rem;
+    display: flex;
+    gap: 50px;
+    padding: 30px 32px;
+  }
+  &__select {
+    padding-top: 20px;
+    width: 80%;
+
+    &__bill {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      &__input {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__calc-result {
+    width: 80%;
+    background-color: #00474b;
+    border-radius: 20px;
+  }
+}
