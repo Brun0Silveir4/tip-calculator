@@ -37,8 +37,16 @@ export default function MainCard() {
           />
         </div>
         <div className="card__select__tip-percentage">
-          {/* componente */}
         <BtnGroup />
+        </div>
+        <div className="card__select__bill__input">
+        <Input
+            value={form.people}
+            onChange={(val) => handleChange("people", val)}
+            title={"People"}
+            specification={"People"}
+            icon={iconPerson}
+          /> 
         </div>
       </div>
       <div className="card__calc-result"></div>
