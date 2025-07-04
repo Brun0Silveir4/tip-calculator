@@ -1,0 +1,39 @@
+.tip-percentage{
+    &__title {
+        color: #6a7577;
+      }
+    
+      &__btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    
+      &__btn {
+        width: 115px;
+        height: 45px;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 8px;
+    
+        &--fill {
+          background-color: #00474b;
+          transition: 0.3s ease;
+          color: white;
+          
+          &:hover{
+            color: #094745;
+            background-color: #9ee8df;
+          }
+        }
+    
+        &--custom{
+          font-size: 20px;
+          background-color: #f3f8fb;
+          color: #094745;
+        }
+      }
+}

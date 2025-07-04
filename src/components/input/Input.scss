@@ -8,6 +8,10 @@
     display: flex;
     justify-content: space-between;
     letter-spacing: 2px;
+    
+    &:first-child{
+      color: #6a7577;
+    }
 
     &--zero {
       color: #be7c6f;

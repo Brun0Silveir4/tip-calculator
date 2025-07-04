@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Input from "../input/Input";
 import iconMoney from "../../assets/icon-dollar.svg";
 import iconPerson from "../../assets/icon-person.svg";
+import BtnGroup from "../Btn-group/BtnGroup";
 
 export default function MainCard() {
   const [form, setForm] = useState({
@@ -34,6 +35,10 @@ export default function MainCard() {
             specification={"Bill"}
             icon={iconMoney}
           />
+        </div>
+        <div className="card__select__tip-percentage">
+          {/* componente */}
+        <BtnGroup />
         </div>
       </div>
       <div className="card__calc-result"></div>

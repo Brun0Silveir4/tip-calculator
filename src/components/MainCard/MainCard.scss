@@ -12,6 +12,9 @@
   &__select {
     padding-top: 20px;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
 
     &__bill {
       display: flex;
@@ -21,6 +24,14 @@
         display: flex;
         flex-direction: column;
       }
+    }
+
+    &__tip-percentage {
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+
+
     }
   }
 
