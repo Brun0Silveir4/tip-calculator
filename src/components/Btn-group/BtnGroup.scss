@@ -34,6 +34,23 @@
           font-size: 20px;
           background-color: #f3f8fb;
           color: #094745;
+
+
+
+          &--input{
+            border: 2px solid #57a99e;
+            outline: none;
+            cursor: text;
+            text-align: end;
+            padding: 10px;
+            color: #094745;
+          }
+
+          &--input::-webkit-outer-spin-button,
+          &--input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
         }
       }
 }

@@ -11,18 +11,19 @@ export default function MainCard() {
     people: "",
   });
 
+  const [tipValue, setTipValue] = useState()
+
   const handleChange = (campo, valor) => {
     setForm((prev) => ({ ...prev, [campo]: valor }));
   };
 
+  const defineTipValue = (value) => {
+    setTipValue(value)
+  }
+
   useEffect(() => {
-    const valor = parseFloat(form.value);
-    console.log(
-      `Conta de R$${valor}. Divido por ${form.people} vai ficar R$${
-        valor / form.people
-      } para cada um`
-    );
-  }, [form.people, form.value]);
+    console.log(`O valor da gorjeta escolhido foi de: ${tipValue}`)
+  }, [tipValue])
 
   return (
     <div className="card__container">
@@ -37,7 +38,7 @@ export default function MainCard() {
           />
         </div>
         <div className="card__select__tip-percentage">
-        <BtnGroup />
+        <BtnGroup defineTipValue={defineTipValue} />
         </div>
         <div className="card__select__bill__input">
         <Input
