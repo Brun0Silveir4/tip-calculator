@@ -1,11 +1,12 @@
-import "./BtnGroup.scss"
-import { useState, useRef } from "react"
+import "./BtnGroup.scss";
+import { useState, useRef } from "react";
 
 export default function BtnGroup({ defineTipValue }) {
   const inputRef = useRef(null);
 
   const [input, setInput] = useState(false);
   const [customInput, setCustomInput] = useState("");
+  const [selected, setSelected] = useState(null);
 
   const noNegativeOrE = (e) => {
     if (e.key === "-" || e.key.toLowerCase() === "e") {
@@ -20,8 +21,9 @@ export default function BtnGroup({ defineTipValue }) {
   };
 
   const handleBlur = () => {
-    if(customInput){
-        defineTipValue(customInput)
+    if (customInput) {
+      defineTipValue(customInput);
+      setSelected("custom");
     }
   };
 
@@ -33,12 +35,14 @@ export default function BtnGroup({ defineTipValue }) {
 
   const handleClick = (value) => {
     defineTipValue(value);
+    setSelected(value);
     setInput(false);
-    setCustomInput(""); // limpa o campo custom ao escolher botão fixo
+    setCustomInput("");
   };
 
   const handleCustom = () => {
     setInput(true);
+    setSelected("custom");
   };
 
   return (
@@ -47,20 +51,26 @@ export default function BtnGroup({ defineTipValue }) {
         <p>Select Tip %</p>
       </div>
       <div className="tip-percentage__btn-group">
-        <div className="tip-percentage__btn tip-percentage__btn--fill" onClick={() => handleClick(5)}>5%</div>
-        <div className="tip-percentage__btn tip-percentage__btn--fill" onClick={() => handleClick(10)}>10%</div>
-        <div className="tip-percentage__btn tip-percentage__btn--fill" onClick={() => handleClick(15)}>15%</div>
-        <div className="tip-percentage__btn tip-percentage__btn--fill" onClick={() => handleClick(25)}>25%</div>
-        <div className="tip-percentage__btn tip-percentage__btn--fill" onClick={() => handleClick(50)}>50%</div>
+        {[5, 10, 15, 25, 50].map((val) => (
+          <div key={val} 
+          className={`tip-percentage__btn tip-percentage__btn--fill ${selected === val ? "selected" : ""}`} 
+          onClick={() => handleClick(val)}>
+            {val}%
+          </div>
+        ))}
 
-        {input === false ? (
-          <div className="tip-percentage__btn tip-percentage__btn--custom" onClick={handleCustom}>Custom</div>
+        {!input ? (
+          <div
+          className={`tip-percentage__btn tip-percentage__btn--custom ${selected === "custom" ? "selected" : ""}`}
+          onClick={handleCustom}>
+            Custom
+          </div>
         ) : (
           <input
             type="number"
             ref={inputRef}
             value={customInput}
-            className="tip-percentage__btn tip-percentage__btn--custom--input"
+            className={`tip-percentage__btn tip-percentage__btn--custom--input ${selected === "custom" ? "selected" : ""}`}
             onChange={handleChange}
             onKeyDown={noNegativeOrE}
             onBlur={handleBlur}

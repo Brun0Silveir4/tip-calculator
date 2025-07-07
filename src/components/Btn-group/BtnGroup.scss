@@ -1,56 +1,73 @@
-.tip-percentage{
-    &__title {
-        color: #6a7577;
+.tip-percentage {
+  &__title {
+    color: #6a7577;
+  }
+
+  &__btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  &__btn {
+    width: 115px;
+    height: 45px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+
+    &--fill {
+      background-color: #00474b;
+      transition: 0.3s ease;
+      color: white;
+
+      &:hover {
+        color: #094745;
+        background-color: #9ee8df;
       }
-    
-      &__btn-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
+
+      &.selected {
+        background-color: #26c0ab;
+        color: white;
       }
-    
-      &__btn {
+    }
+
+    &--custom {
+      font-size: 20px;
+      background-color: #f3f8fb;
+      color: #094745;
+
+      &.selected {
+        background-color: #cbeeea;
+        border: 2px solid #26c0ab;
+      }
+
+      &--input {
+        border: 2px solid #57a99e;
+        outline: none;
+        cursor: text;
+        text-align: end;
+        padding: 10px;
+        color: #094745;
         width: 115px;
         height: 45px;
-        font-size: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
+        font-size: 20px;
         border-radius: 8px;
-    
-        &--fill {
-          background-color: #00474b;
-          transition: 0.3s ease;
-          color: white;
-          
-          &:hover{
-            color: #094745;
-            background-color: #9ee8df;
-          }
+
+        &.selected {
+          border: 2px solid #26c0ab;
+          background-color: #cbeeea;
         }
-    
-        &--custom{
-          font-size: 20px;
-          background-color: #f3f8fb;
-          color: #094745;
 
-
-
-          &--input{
-            border: 2px solid #57a99e;
-            outline: none;
-            cursor: text;
-            text-align: end;
-            padding: 10px;
-            color: #094745;
-          }
-
-          &--input::-webkit-outer-spin-button,
-          &--input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-          }
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
         }
       }
+    }
+  }
 }
