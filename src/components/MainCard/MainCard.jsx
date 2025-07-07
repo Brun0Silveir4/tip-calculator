@@ -11,19 +11,21 @@ export default function MainCard() {
     people: "",
   });
 
-  const [tipValue, setTipValue] = useState()
+  const [tipValue, setTipValue] = useState();
+  const [tipAmount, setTipAmount] = useState(0.00)
+  const [totalPerson, setTotalPerson] = useState(0.00)
 
   const handleChange = (campo, valor) => {
     setForm((prev) => ({ ...prev, [campo]: valor }));
   };
 
   const defineTipValue = (value) => {
-    setTipValue(value)
-  }
+    setTipValue(value);
+  };
 
   useEffect(() => {
-    console.log(`O valor da gorjeta escolhido foi de: ${tipValue}`)
-  }, [tipValue])
+    console.log(`O valor da gorjeta escolhido foi de: ${tipValue}`);
+  }, [tipValue]);
 
   return (
     <div className="card__container">
@@ -38,19 +40,55 @@ export default function MainCard() {
           />
         </div>
         <div className="card__select__tip-percentage">
-        <BtnGroup defineTipValue={defineTipValue} />
+          <BtnGroup defineTipValue={defineTipValue} />
         </div>
         <div className="card__select__bill__input">
-        <Input
+          <Input
             value={form.people}
             onChange={(val) => handleChange("people", val)}
             title={"People"}
             specification={"People"}
             icon={iconPerson}
-          /> 
+          />
         </div>
       </div>
-      <div className="card__calc-result"></div>
+      <div className="card__calc-result">
+        <div className="card__calc-result__divisions">
+
+          <div className="card__calc-result__divisions__division-item">
+            <div className="card__calc-result__divisions__division-item__texts">
+              <div className="card__calc-result__divisions__division-item__texts__title">
+                <p>Tip Amount</p>
+              </div>
+              <div className="card__calc-result__divisions__division-item__texts__subtitle">
+                <p>/ person</p>
+              </div>
+            </div>
+            <div className="card__calc-result__divisions__division-item__total">
+              <p>${tipAmount.toFixed(2)}</p>
+            </div>
+          </div>
+
+          <div className="card__calc-result__divisions__division-item">
+            <div className="card__calc-result__divisions__division-item__texts">
+              <div className="card__calc-result__divisions__division-item__texts__title">
+                <p>Total</p>
+              </div>
+              <div className="card__calc-result__divisions__division-item__texts__subtitle">
+                <p>/ person</p>
+              </div>
+            </div>
+            <div className="card__calc-result__divisions__division-item__total">
+              <p>${totalPerson.toFixed(2)}</p>
+            </div>
+          </div>
+
+
+        </div>
+        <div className="card__calc-result__resetbtn">
+          <button>RESET</button>
+        </div>
+      </div>
     </div>
   );
 }

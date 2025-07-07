@@ -30,8 +30,6 @@
       display: flex;
       gap: 15px;
       flex-direction: column;
-
-
     }
   }
 
@@ -39,5 +37,48 @@
     width: 80%;
     background-color: #00474b;
     border-radius: 20px;
+    padding: 60px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__divisions {
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
+      &__division-item {
+        display: flex;
+        justify-content: space-between;
+
+        &__texts {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          &__title {
+            color: white;
+          }
+          &__subtitle {
+            color: #609598;
+          }
+        }
+
+        &__total {
+          color: #25c1a9;
+          font-size: 2.5rem;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    &__resetbtn{
+      button{
+        width: 100%;
+        padding: 15px;
+        background-color: #0c676d;
+        border: 1px solid transparent;
+        border-radius: 10px;
+      }
+    }
   }
 }
