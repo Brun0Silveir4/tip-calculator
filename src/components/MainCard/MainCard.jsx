@@ -1,5 +1,5 @@
 import "./MainCard.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Input from "../input/Input";
 import iconMoney from "../../assets/icon-dollar.svg";
 import iconPerson from "../../assets/icon-person.svg";
@@ -12,8 +12,9 @@ export default function MainCard() {
   });
 
   const [tipValue, setTipValue] = useState();
-  const [tipAmount, setTipAmount] = useState(0.00)
-  const [totalPerson, setTotalPerson] = useState(0.00)
+  const [tipPerPerson, setTipPerPerson] = useState(0.0);
+  const [totalPerPerson, setTotalPerPerson] = useState(0.0);
+  const [showTip, setShowTip] = useState(false);
 
   const handleChange = (campo, valor) => {
     setForm((prev) => ({ ...prev, [campo]: valor }));
@@ -23,9 +24,61 @@ export default function MainCard() {
     setTipValue(value);
   };
 
+  const prevRef = useRef({
+    value: form.value,
+    people: form.people,
+    tip: tipValue,
+  });
+
+  const handleReset = () => {
+    setForm({ value: "", people: "" });
+    setTipValue(undefined);
+    setTipPerPerson(0.0);
+    setTotalPerPerson(0.0);
+    setShowTip(false);
+
+    prevRef.current = {
+      value: "",
+      people: "",
+      tip: undefined,
+    };
+  };
+  
+
   useEffect(() => {
-    console.log(`O valor da gorjeta escolhido foi de: ${tipValue}`);
-  }, [tipValue]);
+    const prevValues = prevRef.current;
+    if (
+      prevValues.value !== form.value ||
+      prevValues.people !== form.people ||
+      prevValues.tip !== tipValue
+    ) {
+      setShowTip(true);
+    }
+
+    prevRef.current = {
+      value: form.value,
+      people: form.people,
+      tip: tipValue,
+    };
+  }, [form.value, form.people, tipValue]);
+
+  useEffect(() => {
+    const bill = parseFloat(form.value);
+    const people = parseInt(form.people);
+    const tip = parseFloat(tipValue);
+
+    if (bill > 0 && people > 0 && tip > 0) {
+      const tipTotal = bill * (tip / 100);
+      const tipEach = tipTotal / people;
+      const totalEach = (bill + tipTotal) / people;
+
+      setTipPerPerson(tipEach);
+      setTotalPerPerson(totalEach);
+    } else {
+      setTipPerPerson(0);
+      setTotalPerPerson(0);
+    }
+  }, [form.value, form.people, tipValue]);
 
   return (
     <div className="card__container">
@@ -40,7 +93,7 @@ export default function MainCard() {
           />
         </div>
         <div className="card__select__tip-percentage">
-          <BtnGroup defineTipValue={defineTipValue} />
+        <BtnGroup defineTipValue={defineTipValue} tipValue={tipValue} />
         </div>
         <div className="card__select__bill__input">
           <Input
@@ -52,9 +105,9 @@ export default function MainCard() {
           />
         </div>
       </div>
+
       <div className="card__calc-result">
         <div className="card__calc-result__divisions">
-
           <div className="card__calc-result__divisions__division-item">
             <div className="card__calc-result__divisions__division-item__texts">
               <div className="card__calc-result__divisions__division-item__texts__title">
@@ -65,7 +118,7 @@ export default function MainCard() {
               </div>
             </div>
             <div className="card__calc-result__divisions__division-item__total">
-              <p>${tipAmount.toFixed(2)}</p>
+              <p>R${tipPerPerson.toFixed(2)}</p>
             </div>
           </div>
 
@@ -79,14 +132,19 @@ export default function MainCard() {
               </div>
             </div>
             <div className="card__calc-result__divisions__division-item__total">
-              <p>${totalPerson.toFixed(2)}</p>
+              <p>R${totalPerPerson.toFixed(2)}</p>
             </div>
           </div>
-
-
         </div>
+
         <div className="card__calc-result__resetbtn">
-          <button>RESET</button>
+          <button
+            className={`card__calc-result__resetbtn ${showTip ? "reset" : "blocked"}`}
+            onClick={handleReset}
+            disabled={!showTip}
+          >
+            RESET
+          </button>
         </div>
       </div>
     </div>

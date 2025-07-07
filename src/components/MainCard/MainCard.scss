@@ -78,6 +78,22 @@
         background-color: #0c676d;
         border: 1px solid transparent;
         border-radius: 10px;
+        font-size: 17px;
+        letter-spacing: 1px;
+        transition: 0.3s ease;
+
+      }
+      .blocked{
+        color: #045b62;
+      }
+
+      .reset{
+        background-color: #009688;
+        color: #094745;
+        cursor: pointer;
+        &:hover{
+          background-color: #9ee8df;
+        }
       }
     }
   }
