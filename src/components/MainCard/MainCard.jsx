@@ -81,6 +81,7 @@ export default function MainCard() {
   }, [form.value, form.people, tipValue]);
 
   return (
+    <div className="card">
     <div className="card__container">
       <div className="card__select">
         <div className="card__select__bill__input">
@@ -147,6 +148,7 @@ export default function MainCard() {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 }

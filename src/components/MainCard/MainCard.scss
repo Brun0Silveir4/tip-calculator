@@ -1,14 +1,21 @@
 .card {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+
   &__container {
-    width: 920px;
-    height: 480px;
+    max-width: 920px;
+    height: 480px; // altura fixa, sem scroll
     background-color: #fff;
     border-radius: 20px;
     margin-top: 5rem;
     display: flex;
     gap: 50px;
     padding: 30px 32px;
+    box-sizing: border-box;
   }
+
   &__select {
     padding-top: 20px;
     width: 80%;
@@ -20,6 +27,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+
       &__input {
         display: flex;
         flex-direction: column;
@@ -46,6 +54,7 @@
       display: flex;
       flex-direction: column;
       gap: 45px;
+
       &__division-item {
         display: flex;
         justify-content: space-between;
@@ -54,9 +63,11 @@
           display: flex;
           flex-direction: column;
           gap: 4px;
+
           &__title {
             color: white;
           }
+
           &__subtitle {
             color: #609598;
           }
@@ -71,8 +82,8 @@
       }
     }
 
-    &__resetbtn{
-      button{
+    &__resetbtn {
+      button {
         width: 100%;
         padding: 15px;
         background-color: #0c676d;
@@ -81,20 +92,23 @@
         font-size: 17px;
         letter-spacing: 1px;
         transition: 0.3s ease;
-
       }
-      .blocked{
+
+      .blocked {
         color: #045b62;
       }
 
-      .reset{
+      .reset {
         background-color: #009688;
         color: #094745;
         cursor: pointer;
-        &:hover{
+
+        &:hover {
           background-color: #9ee8df;
         }
       }
     }
   }
 }
+
+@import "MainCardMobile";
