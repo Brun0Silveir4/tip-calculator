@@ -41,6 +41,8 @@ npm install
 npm run dev 
 ```
 
+Link da aplicação: https://tip-calculator-six.vercel.app
+
 <br>
 
 ## 🙋‍♂️ Autor
