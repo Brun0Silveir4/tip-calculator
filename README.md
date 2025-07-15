@@ -1,6 +1,6 @@
 # Tip Calculator
 
-Este é um projeto de calculadora de gorjetas, desenvolvido com React e estilizado com CSS puro. A aplicação permite calcular de forma rápida e prática o valor da gorjeta e o total por pessoa, com um layout simples e intuitivo.
+Este é um projeto de calculadora de gorjetas, desenvolvido com React. A aplicação permite calcular de forma rápida e prática o valor da gorjeta e o total por pessoa, com um layout simples e intuitivo.
 
 <br>
 
