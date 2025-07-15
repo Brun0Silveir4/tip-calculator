@@ -1,12 +1,51 @@
-# React + Vite
+# Tip Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de calculadora de gorjetas, desenvolvido com React e estilizado com CSS puro. A aplicação permite calcular de forma rápida e prática o valor da gorjeta e o total por pessoa, com um layout simples e intuitivo.
 
-Currently, two official plugins are available:
+<br>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- React
+- Sass
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<br>
+
+
+## 🧩 Funcionalidades
+
+- Cálculo da gorjeta por pessoa
+- Cálculo do valor total por pessoa
+- Seleção de porcentagens padrão ou valor personalizado
+- Botão para resetar os campos
+- Layout responsivo (WIP)
+
+<br>
+
+## 🚀 Como Executar
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/Brun0Silveir4/tip-calculator
+cd tip-calculator
+```
+
+### 2. Instalar as dependências
+```bash
+npm install
+```
+
+### 3. Rode a aplicação
+```bash
+npm run dev 
+```
+
+<br>
+
+## 🙋‍♂️ Autor
+
+Desenvolvido por Bruno Silveira. Contato:  
+• [LinkedIn](https://www.linkedin.com/in/bruno-silveira-dionisio/)  
+• [GitHub](https://github.com/Brun0Silveir4)  
+• bruno.silveira.dionisio@gmail.com
