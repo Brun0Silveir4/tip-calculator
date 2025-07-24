@@ -1,15 +1,16 @@
 .card {
   width: 100%;
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   &__container {
     max-width: 920px;
-    height: 480px; // altura fixa, sem scroll
+    min-height: 480px;
     background-color: #fff;
     border-radius: 20px;
-    margin-top: 5rem;
+    margin-top: 2rem;
     display: flex;
     gap: 50px;
     padding: 30px 32px;
