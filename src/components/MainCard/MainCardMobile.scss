@@ -2,6 +2,7 @@
     .card{
         &__container{
             flex-direction: column;
+            border-radius: 20px 20px 0 0;
         }
         &__select{
             width: 100%;
